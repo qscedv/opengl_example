@@ -2,9 +2,5 @@
     "cmake.debugConfig": {
         "cwd": "${workspaceFolder}" 
     },
-    "cmake.configureOnOpen": true,
-    "files.associations": {
-        "xstring": "cpp",
-        "memory": "cpp"
-    },
+    "cmake.configureOnOpen": true
 }
