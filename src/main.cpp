@@ -7,8 +7,8 @@
 #include <imgui_impl_opengl3.h>
 
 void OnFramebufferSizeChange(GLFWwindow* window, int width, int height) {
-     SPDLOG_INFO("framebuffer size changed: ({} x {})", width, height);
-    auto context = reinterpret_cast<Context *>(glfwGetWindowUserPointer(window));
+    SPDLOG_INFO("framebuffer size changed: ({} x {})", width, height);
+    auto context = (Context*)glfwGetWindowUserPointer(window);
     context->Reshape(width, height);
 }
 
