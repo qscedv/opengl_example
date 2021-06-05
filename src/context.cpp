@@ -266,7 +266,8 @@ void Context::Render() {
         }
         ImGui::Checkbox("animation", &m_animation);
 
-        ImGui::Checkbox("l.directional", &m_light.directional);
+        ImGui::Image((ImTextureID)m_shadowMap->GetShadowMap()->Get(),
+            ImVec2(256, 256), ImVec2(0, 1), ImVec2(1, 0));
     }
     ImGui::End();
 
@@ -345,6 +346,7 @@ void Context::Render() {
     m_deferGeoFramebuffer->GetColorAttachment(1)->Bind();
     glActiveTexture(GL_TEXTURE2);
     m_ssaoNoiseTexture->Bind();
+    glActiveTexture(GL_TEXTURE0);
     m_ssaoProgram->SetUniform("gPosition", 0);
     m_ssaoProgram->SetUniform("gNormal", 1);
     m_ssaoProgram->SetUniform("texNoise", 2);
